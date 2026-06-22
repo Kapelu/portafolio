@@ -1,26 +1,302 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@1,400;1,700&display=swap');
+@import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* SOLARIZED LIGHT */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base */
+  --background: #fdf6e3; /* base3 */
+  --foreground: #657b83; /* base00 */
+
+  --muted: #eee8d5; /* base2 */
+  --muted-foreground: #586e75; /* base01 */
+  --border: #eee8d5;
+
+  /* Colores semánticos */
+  --primary: #268bd2; /* blue */
+  --primary-foreground: #fdf6e3;
+
+  --secondary: #2aa198; /* cyan */
+  --secondary-foreground: #fdf6e3;
+
+  --accent: #859900; /* green */
+  --accent-foreground: #fdf6e3;
+
+  /* Texto */
+  --title-color: #586e75;
+  --text-color: #657b83;
+  --link-color: #268bd2;
+
+  /* Paleta Solarized completa */
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
+
+  /* Compatibilidad con variables antiguas */
+  --first-color: #268bd2;
+  --second-color: #2aa198;
+  --third-color: #859900;
+
+  --gray-light-color: #eee8d5;
+  --gray-color: #93a1a1;
+  --gray-dark-color: #586e75;
+
+  --button-bg: #002b36;
+  --button-text: #839496;
+  --button-border: #073642;
+
+  --input-border: #002b36;
+
+  --mobile-header-height: 4rem;
+  --section-offset: calc(var(--mobile-header-height) + 4px);
+
+  /* debug pantallas*/
+  --debug-inicio: #d26d2630;
+  --debug-acerca: #99470030;
+  --debug-servicio: #b5000c30;
+  --debug-portafolio: #c4bf6c30;
+  --debug-contacto: #36d38730;
+}
+
+/* SOLARIZED DARK*/
+.dark {
+  /* Base */
+  --background: #002b36; /* base03 */
+  --foreground: #839496; /* base0 */
+
+  --muted: #073642; /* base02 */
+  --muted-foreground: #93a1a1; /* base1 */
+  --border: #073642;
+
+  /* Colores semánticos */
+  --primary: #268bd2;
+  --primary-foreground: #fdf6e3;
+
+  --secondary: #2aa198;
+  --secondary-foreground: #fdf6e3;
+
+  --accent: #859900;
+  --accent-foreground: #fdf6e3;
+
+  /* Texto */
+  --title-color: #93a1a1;
+  --text-color: #839496;
+  --link-color: #268bd2;
+
+  /* Paleta Solarized */
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
+
+  /* Compatibilidad */
+  --first-color: #268bd2;
+  --second-color: #2aa198;
+  --third-color: #859900;
+
+  --gray-light-color: #073642;
+  --gray-color: #839496;
+  --gray-dark-color: #93a1a1;
+
+  --input-border: #073642;
+
+  /*debug pantallas*/
+  --debug-inicio: #268bd230;
+  --debug-acerca: #00829930;
+  --debug-servicio: #00b5a930;
+  --debug-portafolio: #6c71c430;
+  --debug-contacto: #d3368230;
+}
+
+/* TAILWIND V4 THEME TOKENS*/
+@theme {
+  --font-gentium: var(--font-gentium);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+
+  --color-first: var(--first-color);
+  --color-second: var(--second-color);
+  --color-third: var(--third-color);
+
+  --color-gray-light: var(--gray-light-color);
+  --color-gray: var(--gray-color);
+  --color-gray-dark: var(--gray-dark-color);
+
+  --color-link: var(--link-color);
+  --color-title: var(--title-color);
+  --color-text: var(--text-color);
+
+  /* Solarized */
+  --color-yellow: var(--yellow);
+  --color-orange: var(--orange);
+  --color-red: var(--red);
+  --color-magenta: var(--magenta);
+  --color-violet: var(--violet);
+  --color-blue: var(--blue);
+  --color-cyan: var(--cyan);
+  --color-green: var(--green);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-button-bg: var(--button-bg);
+  --color-button-text: var(--button-text);
+  --color-button-border: var(--button-border);
+
+  --color-input-border: var(--input-border);
+
+  --color-debug-inicio: var(--debug-inicio);
+  --color-debug-acerca: var(--debug-acerca);
+  --color-debug-servicio: var(--debug-servicio);
+  --color-debug-portafolio: var(--debug-portafolio);
+  --color-debug-contacto: var(--debug-contacto);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base*/
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Scroll */
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 0.2);
+  border-radius: 999px;
+}
+
+/*
+Con esto podrás usar en Tailwind:
+
+bg-background
+text-foreground
+bg-primary
+text-primary
+text-link
+text-title
+text-text
+border-border
+
+text-blue
+text-cyan
+text-green
+text-yellow
+text-orange
+text-red
+text-magenta
+text-violet
+
+por ejemplo:
+            <h1 className="text-title">
+              Mi Blog
+            </h1>
+
+            <p className="text-text">
+              Este es el contenido del artículo.
+            </p>
+
+            <a className="text-link hover:underline">
+              Leer más
+            </a>
+
+            <div className="border border-border">
+              Caja con borde
+            </div>
+
+Con esta configuración podrás usar clases Tailwind como:
+
+bg-primary
+text-primary-foreground
+
+bg-secondary
+text-secondary-foreground
+
+bg-accent
+text-accent-foreground
+
+bg-muted
+text-muted-foreground
+
+border-border
+
+*/
+
+/* Debug de secciones */
+.debug-inicio {
+  background: #268bd220;
+}
+
+.debug-acerca {
+  background: #85990020;
+}
+
+.debug-servicio {
+  background: #b5890020;
+}
+
+.debug-portafolio {
+  background: #6c71c420;
+}
+
+.debug-contacto {
+  background: #d3368220;
+}
+
+.debug-inicio {
+  background: var(--debug-inicio);
+}
+
+.debug-acerca {
+  background: var(--debug-acerca);
+}
+
+.debug-servicio {
+  background: var(--debug-servicio);
+}
+
+.debug-portafolio {
+  background: var(--debug-portafolio);
+}
+
+.debug-contacto {
+  background: var(--debug-contacto);
 }
