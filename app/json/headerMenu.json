@@ -1,0 +1,16 @@
+[
+	{
+		"inicio": {
+			"name": "Inicio",
+			"link": "#inicio"
+		},
+		"portafolio": {
+			"name": "Portafolio",
+			"link": "#portafolio"
+		},
+		"contacto": {
+			"name": "Contacto",
+			"link": "#contacto"
+        }
+	}
+]

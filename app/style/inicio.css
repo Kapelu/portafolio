@@ -1,0 +1,93 @@
+.contain{
+    display: flex;
+    flex-direction: column;
+}
+.inicio-title {
+    font-weight:bold;
+	font-size: 10vw;
+    color: var(--second-alpha-color);
+}
+
+.inicio-subtitle {
+    margin-top: .5rem;
+    font-size: 4vw;
+    color: var(--second-color);
+}
+.contenedor {
+	display: flex;
+	flex-direction: row;
+}
+
+/* ********** ProgressBar ********** */
+
+.progress {
+	margin: 2rem auto;
+}
+
+.progress > p {
+	margin: 0;
+	display: flex;
+	justify-content: space-between;
+	font-size: 1rem;
+}
+
+progress {
+	width: 100%;
+	height: 1rem;
+	background-color: var(--gray-color);
+}
+
+progress::-webkit-progress-bar {
+	background-color: var(--gray-color);
+}
+
+progress::-webkit-progress-value {
+	background-color: var(--second-color);
+}
+
+progress::-moz-progress-bar {
+	background-color: var(--second-color);
+}
+
+/* ********** ServiceCard ********** */
+
+.service-card h2 {
+	color: var(--title-color);
+}
+
+.service-card svg {
+	margin-bottom: 1.25rem;
+	fill: var(--second-color);
+}
+
+
+@media screen and (min-width: 768px) {
+	.services > .container {
+		display: grid;
+		justify-content: space-between;
+		align-content: center;
+	}
+
+	.services .section-title {
+		grid-column: span 2;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.inicio-title {
+        margin-top: 5rem;
+		font-size: 4vw;
+	}
+
+	.inicio-subtitle {
+		font-size: 1.5vw;
+	}
+
+    .services > .container {
+		grid-template-columns: repeat(3, 30%);
+	}
+
+	.services .section-title {
+		grid-column: span 3;
+	}
+}
